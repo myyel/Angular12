@@ -2,20 +2,22 @@
     <div class="row">
         <div class="col-5 mx-auto">
             <h3 class="bg-primary text-white p-3 text-center">
-                Mehmet YEL'in listesi
+                {{getName()}}'in listesi
             </h3>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control">
-                <button class="btn btn-outline-primary">Add</button>
+                <input #txt type="text" class="form-control" 
+                (keyup.enter)="addItem(txt.value)"
+                >
+                <button class="btn btn-outline-primary" (click)="addItem(txt.value)">Add</button>
             </div>
 
             <div class="form-check mb-3">
-                <input type="checkbox" class="form-check-input" name="" id="displayAll">
-                <label for="displayFor" class="form-check-label">Hepsini Göster</label>
+                <input type="checkbox" [(ngModel)]="displayAll" class="form-check-input" name="" id="displayAll">
+                <label for="displayAll" class="form-check-label">Hepsini Göster</label>
             </div>
 
-            <table class="table table-bordered">
+            <table class="table table-bordered" *ngIf="getObjects().length>0">
                 <thead>
                     <tr>
                         <th></th>
@@ -24,23 +26,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>Kahvaltı</th>
-                        <th>Yes</th>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th>Spor</th>
-                        <th>Yes</th>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <th>Alışveriş</th>
-                        <th>No</th>
+                    <tr *ngFor="let item of getObjects(); let i=index">
+                        <th>{{i+1}}</th>
+                        <th >{{item.description}}</th>
+                        <th >
+                            <div [ngSwitch]="item.action">
+                                <div *ngSwitchCase="true">Yes</div>
+                                <div *ngSwitchCase="false">No</div>
+                            </div>
+                        </th>
+                        <th>
+                            <input type="checkbox" [(ngModel)]="item.action" name="" id="">
+                        </th>
                     </tr>
                 </tbody>
             </table>
+
+            <div class="alert alert-warning" *ngIf="getObjects().length==0">
+                Listede eleman yok
+            </div>
         </div>
     </div>
 </div>
