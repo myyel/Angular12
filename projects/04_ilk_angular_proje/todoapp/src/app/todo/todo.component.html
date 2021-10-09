@@ -7,9 +7,12 @@
 
             <div class="input-group mb-3">
                 <input #txt type="text" class="form-control" 
-                (keyup.enter)="addItem(txt.value)"
+                [(ngModel)]="inputTxt"
+                (keyup.enter)="addItem()"
                 >
-                <button class="btn btn-outline-primary" (click)="addItem(txt.value)">Add</button>
+                <button class="btn" (click)="addItem()" 
+                [class]="getBtnClasses()"
+                >Add</button>
             </div>
 
             <div class="form-check mb-3">
@@ -17,34 +20,47 @@
                 <label for="displayAll" class="form-check-label">Hepsini Göster</label>
             </div>
 
-            <table class="table table-bordered" *ngIf="getObjects().length>0">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Description</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of getObjects(); let i=index">
-                        <th>{{i+1}}</th>
-                        <th >{{item.description}}</th>
-                        <th >
-                            <div [ngSwitch]="item.action">
-                                <div *ngSwitchCase="true">Yes</div>
-                                <div *ngSwitchCase="false">No</div>
-                            </div>
-                        </th>
-                        <th>
-                            <input type="checkbox" [(ngModel)]="item.action" name="" id="">
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="my-2">
+                {{ displayCount() }} görev tamamlandı. 
+            </div>
 
-            <div class="alert alert-warning" *ngIf="getObjects().length==0">
+            <div class="alert alert-warning" *ngIf="getObjects().length==0 else itemsTable">
                 Listede eleman yok
             </div>
+
+            <ng-template #itemsTable>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of getObjects(); let i=index" 
+                        [class]="{ 'bg-primary': item.action, 'bg-danger': !item.action}">
+                            <td>{{i+1}}</td>
+                            <td >{{item.description}}</td>
+                            <td >
+                                <div *ngIf="item.action; then yesTemplate else noTemplate">
+                                    Burası gösterilmez
+                                </div>
+                                <ng-template #noTemplate>
+                                    No
+                                </ng-template>
+
+                                <ng-template #yesTemplate>
+                                    Yes
+                                </ng-template>
+                            </td>
+                            <td>
+                                <input type="checkbox" (change)="onActionChanged(item)" [(ngModel)]="item.action" name="" id="">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </ng-template>        
         </div>
     </div>
-</div>
+</div> 

@@ -1,0 +1,41 @@
+<h1 *ngIf="movies.length>0">{{title}}</h1>
+
+<div class="alert alert-warning" *ngIf="movies.length==0">not found movie</div>
+
+<ng-template [ngTemplateOutlet]="populerMovieList" [ngTemplateOutletContext]="{movies: movieRepository.getPopularMovies()}"></ng-template>
+
+<div class="alert alert-warning" *ngIf="movies.length>0">founded {{movies.length}} movie</div>
+
+<div class="card mb-3" *ngFor="let item of movies">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" alt="">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h2 class="card-title">{{item.title}}</h2>
+                <p class="card-text">{{item.description}}</p>
+                <button class="btn btn-sm btn-outline-primary">Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #populerMovieList let-popularMovies="movies">
+<hr><h2 class="mt-3 mb-3">Popular Movies</h2><hr>
+
+<div class="card mb-3" *ngFor="let item of popularMovies">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" alt="">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h2 class="card-title">{{item.title}}</h2>
+                <p class="card-text">{{item.description}}</p>
+                <button class="btn btn-sm btn-outline-primary">Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-template> 
