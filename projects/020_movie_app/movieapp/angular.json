@@ -13,6 +13,11 @@
           "strict": true
         }
       },
+
+      "i18n": {
+        "sourceLocale":"tr"
+      },
+
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
