@@ -11,6 +11,7 @@ export class CategoryComponent implements OnInit {
 
   categories:Category[];
   categoryRepository: CategoryRepository;
+  selectCategory:any=null;
 
 
   constructor() { 
@@ -21,5 +22,15 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayAll=true;
+
+  selectedCategory(category?:Category){
+    if(category){      
+    this.selectCategory=category;
+    this.displayAll=false;
+    }else{
+      this.selectCategory=null;
+    }
+  }
 
 }
