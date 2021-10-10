@@ -5,11 +5,11 @@ export class MovieRepository{
 
     constructor(){
         this.movies=[
-            {id:1, title:"Movie1", description:"Explation of Movie1", imageUrl:"1.jpg", isPopular:true},
-            {id:2, title:"Movie2", description:"Explation of Movie2", imageUrl:"2.jpg", isPopular:true},
-            {id:3, title:"Movie3", description:"Explation of Movie3", imageUrl:"3.jpg", isPopular:false},
-            {id:4, title:"Movie4", description:"Explation of Movie4", imageUrl:"4.jpg", isPopular:false},
-            {id:5, title:"Movie5", description:"Explation of Movie5", imageUrl:"5.jpg",isPopular:true},
+            {id:1, title:"Movie1", description:"Mehmet orem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", imageUrl:"1.jpg", isPopular:true, datePublished: new Date(1990,10,10)},
+            {id:2, title:"Movie2", description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", imageUrl:"2.jpg", isPopular:true,datePublished: new Date(1990,10,10)},
+            {id:3, title:"Movie3", description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", imageUrl:"3.jpg", isPopular:false,datePublished: new Date(1990,10,10)},
+            {id:4, title:"Movie4", description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", imageUrl:"4.jpg", isPopular:false,datePublished: new Date(1990,10,10)},
+            {id:5, title:"Movie5", description:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", imageUrl:"5.jpg",isPopular:true,datePublished: new Date(1990,10,10)},
           ];
     }
 
