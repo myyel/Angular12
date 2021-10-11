@@ -1,0 +1,17 @@
+{
+    "movies":[
+        {"id":1, "title":"Movie1", "description":"Mehmet orem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"1.jpg"},
+        {"id":2, "title":"Movie2", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"2.jpg"},
+        {"id":3, "title":"Movie3", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"3.jpg"},
+        {"id":4, "title":"Movie4", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"4.jpg"},
+        {"id":5, "title":"Movie5", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"5.jpg"}
+    ],
+
+    "category":[
+        {"id":1,"name":"Extreme"},
+        {"id":2,"name":"Romantic"},
+        {"id":3,"name":"Comedy"},
+        {"id":4,"name":"Scine Function"},
+        {"id":5,"name":"War"}
+    ]
+}

@@ -20,7 +20,8 @@
             <div class="card-body">
                 <h2 class="card-title">{{item.title | titlecase}}</h2>
                 <p class="card-text">{{item.description | summary: 100}}</p>
-                <p class="card-text">{{item.datePublished | date:'dd/MM/y'}}</p>
+                <!-- <p class="card-text">{{item.datePublished | date:'dd/MM/y'}}</p> -->
+                
                 <div>
                 <button class="btn btn-sm btn-outline-primary">Details</button>
                 <button (click)="addToList($event,item)" class="btn btn-sm btn-primary ms-1">Add to List</button>
