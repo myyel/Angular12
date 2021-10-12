@@ -1,32 +1,38 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { MovieRepository } from '../model/movie.repository';
+import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../model/movies';
 import { AlertifyService } from '../services/alertify.service';
+import { MovieService } from '../services/movies.service';
 
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movies.component.css'],
+  providers:[MovieService]
 })
 export class MoviesComponent implements OnInit {
 
   title="Movie List";
   movies:Movie[]=[];
   filteredMovies:Movie[]=[];
+  errorMessage:string="";
 
   filterText:string="";
   
-  constructor(private alertify:AlertifyService,
-              private http:HttpClient) { 
-  }
+  constructor(
+    private alertify: AlertifyService, 
+    private movieService: MovieService,
+    private activatedRoute:ActivatedRoute
+    ) {}
 
   ngOnInit(): void {
-    this.http.get<Movie[]>("http://localhost:3000/movies").subscribe(data=>{
-      this.movies=data;      
-      this.filteredMovies=this.movies;
-    });
+    this.activatedRoute.params.subscribe(params=>{
+      this.movieService.getMovies(params["Id"]).subscribe(
+        data=>{this.movies=data; this.filteredMovies=this.movies;}, 
+        error=>{this.errorMessage=error}
+        );      
+    })
   }
 
   onInputChange(){

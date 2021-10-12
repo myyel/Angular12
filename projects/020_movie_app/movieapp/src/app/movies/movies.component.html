@@ -1,3 +1,8 @@
+<div class="alert alert-danger" *ngIf="errorMessage!=''">
+    {{errorMessage}}
+</div>
+
+
 <h1 *ngIf="movies.length>0">{{title}}</h1>
 
 <div class="alert alert-warning" *ngIf="filteredMovies.length==0">not found movie</div>
