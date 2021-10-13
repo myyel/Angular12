@@ -1,17 +1,88 @@
 {
-    "movies":[
-        {"id":1, "title":"Movie1", "description":"Mehmet orem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"1.jpg","categoryId":1},
-        {"id":2, "title":"Movie2", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"2.jpg"      ,"categoryId":2},
-        {"id":3, "title":"Movie3", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"3.jpg"      ,"categoryId":2},
-        {"id":4, "title":"Movie4", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"4.jpg"      ,"categoryId":4},
-        {"id":5, "title":"Movie5", "description":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!", "imageUrl":"5.jpg"      ,"categoryId":5}
-    ],
-    
-    "category":[
-        {"id":1,"name":"Extreme"},
-        {"id":2,"name":"Romantic"},
-        {"id":3,"name":"Comedy"},
-        {"id":4,"name":"Scine Function"},
-        {"id":5,"name":"War"}
-    ]
+  "movies": [
+    {
+      "id": 1,
+      "title": "Movie1",
+      "description": "Mehmet orem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!",
+      "imageUrl": "1.jpg",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Movie2",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!",
+      "imageUrl": "2.jpg",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "title": "Movie3",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!",
+      "imageUrl": "3.jpg",
+      "categoryId": 2
+    },
+    {
+      "id": 4,
+      "title": "Movie4",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!",
+      "imageUrl": "4.jpg",
+      "categoryId": 4
+    },
+    {
+      "id": 5,
+      "title": "Movie5",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, iste? Natus libero nam delectus voluptatum quasi quidem laudantium dolorem pariatur accusamus obcaecati animi assumenda unde, tempore corrupti nisi voluptatibus consectetur!",
+      "imageUrl": "5.jpg",
+      "categoryId": 5
+    },
+    {
+      "id": 6,
+      "title": "Shadow Hunters",
+      "description": "this is new explation of this movie",
+      "imageUrl": "1.jpg",
+      "categoryId": "1",
+      "isPopular": false,
+      "datePublished": 1634126750529
+    },
+    {
+      "id": 7,
+      "title": "Squid Game",
+      "description": "this is explanation of Squid Game",
+      "imageUrl": "2.jpg",
+      "categoryId": "4",
+      "isPopular": false,
+      "datePublished": 1634126995568
+    },
+    {
+      "id": 8,
+      "title": "<br>",
+      "description": "asdasa",
+      "imageUrl": "4.jpg",
+      "categoryId": "2",
+      "isPopular": false,
+      "datePublished": 1634146105507
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Extreme"
+    },
+    {
+      "id": 2,
+      "name": "Romantic"
+    },
+    {
+      "id": 3,
+      "name": "Comedy"
+    },
+    {
+      "id": 4,
+      "name": "Scine Function"
+    },
+    {
+      "id": 5,
+      "name": "War"
+    }
+  ]
 }
