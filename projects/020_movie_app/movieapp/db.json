@@ -38,29 +38,50 @@
     {
       "id": 6,
       "title": "Shadow Hunters",
-      "description": "this is new explation of this movie",
-      "imageUrl": "1.jpg",
-      "categoryId": "1",
+      "description": "A immortal life movie",
+      "imageUrl": "4.jpg",
+      "categoryId": "4",
       "isPopular": false,
-      "datePublished": 1634126750529
+      "datePublished": 1634409032771
     },
     {
       "id": 7,
-      "title": "Squid Game",
-      "description": "this is explanation of Squid Game",
-      "imageUrl": "2.jpg",
-      "categoryId": "4",
       "isPopular": false,
-      "datePublished": 1634126995568
+      "datePublished": 1634411253153
     },
     {
       "id": 8,
-      "title": "<br>",
-      "description": "asdasa",
-      "imageUrl": "4.jpg",
-      "categoryId": "2",
       "isPopular": false,
-      "datePublished": 1634146105507
+      "datePublished": 1634412225845
+    },
+    {
+      "id": 9,
+      "isPopular": false,
+      "datePublished": 1634412250753
+    },
+    {
+      "id": 10,
+      "isPopular": false,
+      "datePublished": 1634412326513
+    },
+    {
+      "id": 11,
+      "isPopular": false,
+      "datePublished": 1634412330651
+    },
+    {
+      "id": 12,
+      "isPopular": false,
+      "datePublished": 1634412396479
+    },
+    {
+      "id": 13,
+      "title": "Squid Game",
+      "description": "it's a South Korean movie",
+      "imageUrl": "3.jpg",
+      "categoryId": "1",
+      "isPopular": false,
+      "datePublished": 1634417124178
     }
   ],
   "category": [

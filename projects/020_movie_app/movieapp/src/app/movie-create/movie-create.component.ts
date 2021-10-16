@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ImageValidator } from 'src/assets/validators/image.validator';
 import { Category } from '../model/category';
 import { AlertifyService } from '../services/alertify.service';
 import { CategoryService } from '../services/category.service';
@@ -15,7 +16,8 @@ import { MovieService } from '../services/movies.service';
 export class MovieCreateComponent implements OnInit {
 
   categories:Category[]=[];
-  model:any={};
+  model:any={
+  };
 
   constructor(private categoryService:CategoryService, private movieService:MovieService, private router:Router, private alertify:AlertifyService) { }
 
@@ -25,26 +27,37 @@ export class MovieCreateComponent implements OnInit {
     })
   }
 
-  createMovie(form:NgForm){
-
-      console.log(form); 
-    // const movie={
-    //   id:0,
-    //   title:title.value, 
-    //   description:description.value, 
-    //   imageUrl:imageUrl.value, 
-    //   categoryId:categoryId.value,
-    //   isPopular:false,
-    //   datePublished:new Date().getTime()
-    // }
-
-    // this.movieService.createMovie(movie).subscribe(data=>{
-    //   this.router.navigate(["/movies"])
-    // })
+  movieForm=new FormGroup({
+    title: new FormControl("Title",[Validators.required, Validators.minLength(5)]),
+    description: new FormControl("Description",[Validators.required]),
+    imageUrl: new FormControl("Image",[Validators.required, ImageValidator.isValidExtention]),
+    categoryId: new FormControl("-1",[Validators.required])
+  }); 
+  
+  clearForm(){
+    this.movieForm.patchValue({
+      title:"",
+      description:"",
+      imageUrl:"",
+      categoryId:"-1"
+    });
   }
 
-  log(value:any){
-    console.log(value);
+  createMovie(){
+
+    const movie={
+      id:0,
+      title:this.movieForm.value.title, 
+      description:this.movieForm.value.description, 
+      imageUrl:this.movieForm.value.imageUrl, 
+      categoryId:this.movieForm.value.categoryId,
+      isPopular:false,
+      datePublished:new Date().getTime()
+    }
+
+    this.movieService.createMovie(movie).subscribe(data=>{
+      this.router.navigate(["/movies"])
+    })
   }
 
 }
