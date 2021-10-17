@@ -43,46 +43,8 @@
       "categoryId": "4",
       "isPopular": false,
       "datePublished": 1634409032771
-    },
-    {
-      "id": 7,
-      "isPopular": false,
-      "datePublished": 1634411253153
-    },
-    {
-      "id": 8,
-      "isPopular": false,
-      "datePublished": 1634412225845
-    },
-    {
-      "id": 9,
-      "isPopular": false,
-      "datePublished": 1634412250753
-    },
-    {
-      "id": 10,
-      "isPopular": false,
-      "datePublished": 1634412326513
-    },
-    {
-      "id": 11,
-      "isPopular": false,
-      "datePublished": 1634412330651
-    },
-    {
-      "id": 12,
-      "isPopular": false,
-      "datePublished": 1634412396479
-    },
-    {
-      "id": 13,
-      "title": "Squid Game",
-      "description": "it's a South Korean movie",
-      "imageUrl": "3.jpg",
-      "categoryId": "1",
-      "isPopular": false,
-      "datePublished": 1634417124178
     }
+  
   ],
   "category": [
     {

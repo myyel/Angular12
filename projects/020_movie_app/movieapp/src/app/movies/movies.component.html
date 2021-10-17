@@ -16,7 +16,8 @@
     <small *ngIf="filterText" class="text-muted">Aradığınız kelime {{filterText}}</small>
 </div>
 
-<div class="card mb-3" *ngFor="let item of filteredMovies">
+<div *ngIf="!loading">    
+    <div class="card mb-3" *ngFor="let item of filteredMovies">
     <div class="row">
         <div class="col-md-3">
             <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" alt="">
@@ -34,4 +35,10 @@
             </div>
         </div>
     </div>
+    </div>
 </div>
+
+<div *ngIf="loading" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  
