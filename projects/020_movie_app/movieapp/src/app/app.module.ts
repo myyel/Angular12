@@ -17,6 +17,7 @@ import { MovieCreateComponent } from './movie-create/movie-create.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { AuthComponent } from './auth/auth.component';
 import { ErrorInterceptor } from './services/error.interceptor';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ErrorInterceptor } from './services/error.interceptor';
   ],
   providers: [
     AlertifyService,
-    {provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true}
+    {provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

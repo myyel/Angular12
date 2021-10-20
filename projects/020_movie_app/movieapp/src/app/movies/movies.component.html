@@ -1,44 +1,61 @@
-<div class="alert alert-danger" *ngIf="errorMessage!=''">
-    {{errorMessage}}
-</div>
 
-
-<h1 *ngIf="movies.length>0">{{title}}</h1>
-
-<div class="alert alert-warning" *ngIf="filteredMovies.length==0">not found movie</div>
-
-<div class="alert alert-warning" *ngIf="filteredMovies.length>0">founded {{filteredMovies.length}} movie</div>
-
-<div class="mb-3">
-    <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterText"
-    (ngModelChange)="onInputChange()">
-
-    <small *ngIf="filterText" class="text-muted">Aradığınız kelime {{filterText}}</small>
-</div>
-
-<div *ngIf="!loading">    
-    <div class="card mb-3" *ngFor="let item of filteredMovies">
     <div class="row">
-        <div class="col-md-3">
-            <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" alt="">
+      <div class="col-md-3">
+        <app-category></app-category>
+      </div>
+      <div class="col-md-9">
+        <div class="alert alert-danger" *ngIf="errorMessage!=''">
+            {{errorMessage}}
         </div>
-        <div class="col-md-9">
-            <div class="card-body">
-                <h2 class="card-title">{{item.title | titlecase}}</h2>
-                <p class="card-text">{{item.description | summary: 100}}</p>
-                <!-- <p class="card-text">{{item.datePublished | date:'dd/MM/y'}}</p> -->
-                
-                <div>
-                <a routerLink="/movies/{{item.id}}" class="btn btn-sm btn-outline-primary">Details</a>
-                <button (click)="addToList($event,item)" class="btn btn-sm btn-primary ms-1">Add to List</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
+        
+        <h1 *ngIf="movies.length>0">{{title}}</h1>
 
-<div *ngIf="loading" class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
+        <div class="alert alert-warning" *ngIf="filteredMovies.length==0">not found movie</div>
+            
+        <div class="alert alert-warning" *ngIf="filteredMovies.length>0">founded {{filteredMovies.length}} movie</div>
+            
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterText"
+            (ngModelChange)="onInputChange()">
+        
+            <small *ngIf="filterText" class="text-muted">Aradığınız kelime {{filterText}}</small>
+
+        <div *ngIf="loading" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+
+          
+        <div *ngIf="!loading">    
+          <div class="card mb-3" *ngFor="let item of filteredMovies">
+          <div class="row">
+              <div class="col-md-3">
+                  <img src="/assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" alt="">
+              </div>
+              <div class="col-md-9">
+                  <div class="card-body">
+                      <h2 class="card-title">{{item.title | titlecase}}</h2>
+                      <p class="card-text">{{item.description | summary: 100}}</p>
+                      <!-- <p class="card-text">{{item.datePublished | date:'dd/MM/y'}}</p> -->
+                      
+                      <div>
+                      <a routerLink="/movies/{{item.id}}" class="btn btn-sm btn-outline-primary">Details</a>
+                      <button (click)="addToList($event,item)" class="btn btn-sm btn-primary ms-1">Add to List</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+
+          
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
   
