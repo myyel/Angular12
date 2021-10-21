@@ -6,14 +6,23 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { MovieCreateComponent } from './movie-create/movie-create.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './guards/auth.guard';
+import { MoviesHomeComponent } from './movies/movies-home/movies-home.component';
 
 const routes:Routes= [
-  { path: 'movies', component:MoviesComponent },
   { path:'', redirectTo: 'movies', pathMatch: 'full' },
-  {path:'movies/category/:Id',component:MoviesComponent},
-  {path: 'movies/create', component:MovieCreateComponent},
-  {path: 'categories/create', component:CategoryCreateComponent},
-  {path:'movies/:movieId', component:MovieDetailsComponent},
+  {
+    path:"movies",
+    component: MoviesHomeComponent, 
+    canActivate:[AuthGuard] ,
+    children:[
+      { path: '', component:MoviesComponent},
+      {path:'category/:Id',component:MoviesComponent},
+      {path: 'create', component:MovieCreateComponent},
+      {path:':movieId', component:MovieDetailsComponent}
+    ]
+  },
+  {path: 'categories/create', component:CategoryCreateComponent, canActivate:[AuthGuard]},
   {path:'auth', component:AuthComponent}
 ]
 

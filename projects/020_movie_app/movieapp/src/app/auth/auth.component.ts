@@ -25,6 +25,10 @@ export class AuthComponent implements OnInit {
     this.isLoginMode=!this.isLoginMode;
   }
 
+  closeDialog(){
+    this.error=null;
+  }
+
   onSubmit(form:NgForm){
     if(form.invalid)
       return;
@@ -44,7 +48,7 @@ export class AuthComponent implements OnInit {
 
       authResponse.subscribe(response=>{
         this.loading=false;
-        this.router.navigate(["/movies"]);
+        this.router.navigate(["/movies"]);  
       },err=>{ 
 
         this.error=err; 

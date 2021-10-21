@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../model/movies';
 import { AlertifyService } from '../services/alertify.service';
+import { AuthService } from '../services/auth.service';
 import { MovieService } from '../services/movies.service';
 
 
@@ -18,15 +19,20 @@ export class MoviesComponent implements OnInit {
   filteredMovies:Movie[]=[];
   errorMessage:string="";
   filterText:string="";
+  userId:string;
   loading:boolean=false;
   
   constructor(
     private alertify: AlertifyService, 
     private movieService: MovieService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private authService:AuthService
     ) {}
 
   ngOnInit(): void {
+    this.authService.user.subscribe(user=>{
+      this.userId=user.id
+    })
     this.activatedRoute.params.subscribe(params=>{
       this.loading=true;
       this.movieService.getMovies(params["Id"]).subscribe(
@@ -51,7 +57,11 @@ export class MoviesComponent implements OnInit {
       $event.target.classList.remove("btn-primary");
       $event.target.classList.add("btn-danger");
 
-      this.alertify.success(movie.title+ " listene eklendi");
+      this.movieService.addToMyList({userId:this.userId, movieId:movie.id})
+      .subscribe(()=>this.alertify.success(movie.title+ " listene eklendi"))
+
+
+      
     }else{
       $event.target.innerText="Add to List";
       $event.target.classList.remove("btn-danger");
