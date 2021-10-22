@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, NgModel, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ImageValidator } from 'src/assets/validators/image.validator';
-import { Category } from '../model/category';
-import { AlertifyService } from '../services/alertify.service';
-import { CategoryService } from '../services/category.service';
-import { MovieService } from '../services/movies.service';
+import { Category } from '../../model/category';
+import { AlertifyService } from '../../services/alertify.service';
+import { CategoryService } from '../../services/category.service';
+import { MovieService } from '../movies.service';
 
 @Component({
   selector: 'app-movie-create',

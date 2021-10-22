@@ -29,7 +29,16 @@
                       
                       <div>
                       <a routerLink="/movies/{{item.id}}" class="btn btn-sm btn-outline-primary">Details</a>
-                      <button (click)="addToList($event,item)" class="btn btn-sm btn-primary ms-1">Add to List</button>
+
+                      <button *ngIf="!getButtonState(item.id)"
+                        (click)="addToList($event,item)" 
+                        class="btn btn-sm btn-primary ms-1">Add to List
+                      </button>
+
+                      <button *ngIf="getButtonState(item.id)"
+                        (click)="addToList($event,item)" 
+                        class="btn btn-sm btn-danger ms-1">Remove to List
+                      </button>
                       </div>
                   </div>
                 </div>

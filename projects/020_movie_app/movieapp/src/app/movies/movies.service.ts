@@ -2,8 +2,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { catchError, delay, map, tap } from "rxjs/operators";
-import { Movie } from "../model/movies";
-import { MyList } from "../model/myList";
+import { Movie } from "./movies";
+import { MyList } from "./myList";
 
 @Injectable()
 export class MovieService {
@@ -58,6 +58,20 @@ export class MovieService {
             catchError(this.handleError)
             );
     }
+    
+    getList(userId:string):Observable<string[]>{
+        return this.http.get<string[]>(this.url_firebase+"/users/" + userId+ "/list.json").pipe(
+            map(response=>{
+                const movies:string[]=[];
+
+                for(const key in response){
+                    movies.push(key);
+                }
+                return movies;
+            }),
+            catchError(this.handleError)
+        )
+    }
 
     addToMyList(item:MyList): Observable<MyList>{
         return this.http.post<MyList>(this.url_firebase + "/users/ "+item.userId + "/list/"+item.movieId+ ".json",{
@@ -66,6 +80,13 @@ export class MovieService {
             tap(data=>{
                 console.log(data);
             }),
+            catchError(this.handleError)
+        )
+    }
+
+    removeFromList(item:MyList): Observable<MyList>{
+        return this.http.delete<MyList>(this.url_firebase + "/users/ "+item.userId + "/list/"+item.movieId+ ".json").pipe(
+            tap(data=> {console.log(data)}),
             catchError(this.handleError)
         )
     }

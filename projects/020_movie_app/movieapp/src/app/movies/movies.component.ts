@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from '../model/movies';
+import { Movie } from './movies';
 import { AlertifyService } from '../services/alertify.service';
 import { AuthService } from '../services/auth.service';
-import { MovieService } from '../services/movies.service';
+import { MovieService } from './movies.service';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class MoviesComponent implements OnInit {
   filterText:string="";
   userId:string;
   loading:boolean=false;
+  movieList:string[]=[];
   
   constructor(
     private alertify: AlertifyService, 
@@ -31,18 +32,24 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.user.subscribe(user=>{
-      this.userId=user.id
-    })
+      this.userId=user.id;
+      
     this.activatedRoute.params.subscribe(params=>{
       this.loading=true;
       this.movieService.getMovies(params["Id"]).subscribe(
         data=>{this.movies=data; this.filteredMovies=this.movies;
+
+        this.movieService.getList(this.userId).subscribe(data=>{
+          this.movieList=data;
+          console.log(this.movieList);
+        })
         this.loading=false;
         }, 
         error=>{this.errorMessage=error;
         this.loading=false;
         }
         );      
+    })
     })
   }
 
@@ -58,7 +65,7 @@ export class MoviesComponent implements OnInit {
       $event.target.classList.add("btn-danger");
 
       this.movieService.addToMyList({userId:this.userId, movieId:movie.id})
-      .subscribe(()=>this.alertify.success(movie.title+ " listene eklendi"))
+      .subscribe(()=>this.alertify.success(movie.title+ " listene eklendi"));
 
 
       
@@ -66,9 +73,15 @@ export class MoviesComponent implements OnInit {
       $event.target.innerText="Add to List";
       $event.target.classList.remove("btn-danger");
       $event.target.classList.add("btn-primary");      
-      this.alertify.error(movie.title+ " listenden çıkarıldı");
+
+      this.movieService.removeFromList({userId:this.userId, movieId:movie.id})
+      .subscribe(()=>this.alertify.error(movie.title+ " listenden çıkarıldı"));
 
     }
+  }
+
+  getButtonState(movie:Movie){
+    return this.movieList.findIndex(m=>m===movie.id) >-1 ;
   }
 
 }
