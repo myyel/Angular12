@@ -16,8 +16,7 @@
             <button type="button" [disabled]="authForm.invalid && isLoginMode" class="btn btn-primary ms-2" type="submit">{{isLoginMode ? 'Login' : 'Register'}}</button>
         </form>
         
-        <div *ngIf="loading" class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
+        <app-loading *ngIf="loading"></app-loading>
+
     </div>
 </div>

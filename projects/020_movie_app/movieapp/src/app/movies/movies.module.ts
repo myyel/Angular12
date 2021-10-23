@@ -1,7 +1,8 @@
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { CategoriesModule } from "../category/categories.module";
+import { SharedModule } from "../shared/shared.module";
 import { MovieCreateComponent } from "./movie-create/movie-create.component";
 import { MovieDetailsComponent } from "./movie-details/movie-details.component";
 import { MovieFilterPipe } from "./movie-filter.pipe";
@@ -24,10 +25,11 @@ import { SummaryPipe } from "./summary.pipe";
     ],
     imports: [
         RouterModule,
-        CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        MoviesRoutingModule
+        MoviesRoutingModule,
+        CategoriesModule,
+        SharedModule
     ],
     exports: [
         MoviesComponent,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from 'src/app/movies/movies';
+import { Movie } from 'src/app/movies/movies.model';
 import { MovieService } from 'src/app/movies/movies.service';
 
 @Component({

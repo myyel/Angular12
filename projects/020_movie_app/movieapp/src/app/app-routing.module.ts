@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CategoryCreateComponent } from './category-create/category-create.component';
-import { AuthComponent } from './auth/auth.component';
-import { AuthGuard } from './guards/auth.guard';
+import { PreloadAllModules, PreloadingStrategy, RouterModule, Routes } from '@angular/router';
 
 const routes:Routes= [
-  {path: 'categories/create', component:CategoryCreateComponent, canActivate:[AuthGuard]},
-  {path:'auth', component:AuthComponent}
+  {path:"" , redirectTo:"movies", pathMatch: "full"},
+  {path:"movies", loadChildren: ()=>import ("./movies/movies.module").then(m=>m.MoviesModule) },
+  {path:"auth", loadChildren: ()=>import ("./auth/auth.module").then(m=>m.AuthModule) },
 ]
 
 @NgModule({
-  imports:[RouterModule.forRoot(routes)],
+  imports:[RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
